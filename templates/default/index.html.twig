@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des articles{% endblock %}
+
+    {% block body %}
+    
+    <h1>{% if brouillon %}Liste des brouillons
+    {% else %}
+    Liste des articles{% endif %}
+    </h1>
+    {{articles|taille}}
+    <ul>
+    {% for article in articles %}
+       <li><a href="{{path('vue-article',{'id':article.id})}}">{{article.titre}}</a> {{article.dateCreation|date("d/m/Y")}}</li> 
+    {% endfor %}
+    </ul>
+
+
+
+    
+
+{% endblock %}
